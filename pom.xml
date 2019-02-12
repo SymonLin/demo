@@ -78,6 +78,11 @@
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
             </dependency>
+            <dependency>
+                <groupId>net.bull.javamelody</groupId>
+                <artifactId>javamelody-spring-boot-starter</artifactId>
+                <version>1.74.0</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
