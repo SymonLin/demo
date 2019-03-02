@@ -17,9 +17,9 @@ public class UserServiceImpl implements UserService {
     private UserMapper userMapper;
 
     @Override
-    public Boolean addUser(String userName) {
+    public Boolean addUser(String userNick) {
         UserDO user = UserDO.builder()
-                .userName(userName)
+                .userNick(userNick)
                 .build();
         return userMapper.insertSelective(user) > 0;
     }

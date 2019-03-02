@@ -25,8 +25,8 @@ public class UserController {
     @PostMapping("add")
     @ApiOperation("添加用户")
     public void addUser(
-            @ApiParam(name = "userName", value = "用户名", example = "test", required = true)
-            @RequestParam("userName") String userName) {
-        userService.addUser(userName);
+            @ApiParam(name = "userNick", value = "用户昵称", example = "test", required = true)
+            @RequestParam("userNick") String userNick) {
+        userService.addUser(userNick);
     }
 }

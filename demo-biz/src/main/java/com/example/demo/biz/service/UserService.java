@@ -9,8 +9,8 @@ public interface UserService {
     /**
      * 添加用户
      *
-     * @param userName 用户名
+     * @param userNick 用户昵称
      * @return Boolean
      */
-    Boolean addUser(String userName);
+    Boolean addUser(String userNick);
 }

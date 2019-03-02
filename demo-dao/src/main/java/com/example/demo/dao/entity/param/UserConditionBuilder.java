@@ -22,8 +22,8 @@ public class UserConditionBuilder {
     private List<Integer> idList;
 
     /**
-     * 用户名
+     * 用户昵称
      */
-    private String userName;
+    private String userNick;
 
 }

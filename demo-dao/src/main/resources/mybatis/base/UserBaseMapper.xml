@@ -7,15 +7,15 @@
     <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.UserDO">
         <!--自增ID-->
         <result column="id" property="id"/>
-        <!--用户名-->
-        <result column="user_name" property="userName"/>
+        <!--用户昵称-->
+        <result column="user_nick" property="userNick"/>
     </resultMap>
 
     <!-- 通用查询结果列-->
     <sql id="BaseColumn">
         <trim suffixOverrides=",">
             `id`,
-            `user_name`,
+            `user_nick`,
         </trim>
     </sql>
 
@@ -31,20 +31,20 @@
                     #{item}
                 </foreach>
             </if>
-            <if test="userName != null and userName != ''">
-                AND `user_name` = #{userName}
+            <if test="userNick != null and userNick != ''">
+                AND `user_nick` = #{userNick}
             </if>
         </where>
     </sql>
 
     <insert id="insertSelective" parameterType="com.example.demo.dao.entity.UserDO" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `db_user`
+        INSERT INTO `yb_user`
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 `id`,
             </if>
-            <if test="userName != null">
-                `user_name`,
+            <if test="userNick != null">
+                `user_nick`,
             </if>
         </trim>
         VALUES
@@ -52,17 +52,17 @@
             <if test="id != null">
                 #{id},
             </if>
-            <if test="userName != null">
-                #{userName},
+            <if test="userNick != null">
+                #{userNick},
             </if>
         </trim>
     </insert>
 
     <update id="updateById" parameterType="com.example.demo.dao.entity.UserDO">
-        UPDATE `db_user`
+        UPDATE `yb_user`
         <set>
-            <if test="userName != null and userName != ''">
-                `user_name` = #{userName},
+            <if test="userNick != null and userNick != ''">
+                `user_nick` = #{userNick},
             </if>
         </set>
         WHERE `id` = #{id}
@@ -71,14 +71,14 @@
     <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.example.demo.dao.entity.param.UserConditionBuilder">
         SELECT
         <include refid="BaseColumn"/>
-        FROM `db_user`
+        FROM `yb_user`
         <include refid="QueryCondition"/>
     </select>
 
     <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT
         <include refid="BaseColumn"/>
-        FROM `db_user`
+        FROM `yb_user`
         WHERE `id` = #{id}
     </select>
 </mapper>

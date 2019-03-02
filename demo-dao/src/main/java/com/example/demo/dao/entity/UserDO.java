@@ -1,9 +1,9 @@
 package com.example.demo.dao.entity;
 
-import lombok.Data;
-import lombok.Builder;
-import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 /**
  * @author linjian
@@ -21,8 +21,8 @@ public class UserDO {
     private Integer id;
 
     /**
-     * 用户名
+     * 用户昵称
      */
-    private String userName;
+    private String userNick;
 
 }
