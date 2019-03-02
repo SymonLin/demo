@@ -14,6 +14,10 @@
     <dependencies>
         <dependency>
             <groupId>com.example.demo</groupId>
+            <artifactId>demo-common</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.example.demo</groupId>
             <artifactId>demo-dao</artifactId>
         </dependency>
     </dependencies>
