@@ -33,7 +33,7 @@
         <java.version>1.8</java.version>
         <demo.version>0.0.1-SNAPSHOT</demo.version>
         <swagger.version>2.8.0</swagger.version>
-        <jackson.version>2.9.4</jackson.version>
+        <jackson.version>2.9.8</jackson.version>
     </properties>
 
     <!-- 依赖管理：这里统一管理依赖的版本号 -->
