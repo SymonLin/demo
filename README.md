@@ -11,10 +11,10 @@
 
 ***
 ### 三、项目结构
-* biz层（业务逻辑层）
-* dao层（数据持久层）
-* common层（公用组件层）
-* web层（请求处理层）
+* biz 层（业务逻辑层）
+* dao 层（数据持久层）
+* common 层（公用组件层）
+* web 层（请求处理层）
 
 > 注：biz 层依赖 dao 及 common 层， web 层依赖 biz 层
 
@@ -22,15 +22,15 @@
 ### 四、项目搭建
 #### 4.1 创建父工程
 ① IDEA 主面板选择菜单「Create New Project 」或者工具栏选择菜单「 File -> New -> Project... 」
-![SpringBoot_1_1.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_1.png)
+![SpringBoot_1_1.png](http://blog.shoegaze.com/SpringBoot_1_1.png)
 ② 侧边栏选择「 Spring Initializr 」，Initializr 默认选择 Default ，然后点击「 Next 」
-![SpringBoot_1_2.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_2.png)
+![SpringBoot_1_2.png](http://blog.shoegaze.com/SpringBoot_1_2.png)
 ③ 修改 Group 、 Artifact 、 Package 输入框中的值后点击「 Next 」
-![SpringBoot_1_3.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_3.png)
+![SpringBoot_1_3.png](http://blog.shoegaze.com/SpringBoot_1_3.png)
 ④ 这步暂时先不需要选择，直接点「 Next 」
-![SpringBoot_1_4.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_4.png)
+![SpringBoot_1_4.png](http://blog.shoegaze.com/SpringBoot_1_4.png)
 ⑤ 点击「 Finish 」创建项目
-![SpringBoot_1_5.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_5.png)
+![SpringBoot_1_5.png](http://blog.shoegaze.com/SpringBoot_1_5.png)
 ⑥ 最终得到的项目目录结构如下
 ``` bash
 |-- demo
@@ -61,13 +61,13 @@
 ⑦ 删除无用的 .mvn 目录、 src 目录、 mvnw 及 mvnw.cmd 文件，最终只留 .gitignore 和 pom.xml
 #### 4.2 创建子模块
 ① 选择项目根目录，右键呼出菜单，选择「 New -> Module 」
-![SpringBoot_1_6.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_6.png)
+![SpringBoot_1_6.png](http://blog.shoegaze.com/SpringBoot_1_6.png)
 ② 侧边栏选择「 Maven 」，点击「 Next 」
-![SpringBoot_1_7.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_7.png)
+![SpringBoot_1_7.png](http://blog.shoegaze.com/SpringBoot_1_7.png)
 ③ 填写 ArifactId ，点击「 Next 」
-![SpringBoot_1_8.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_8.png)
+![SpringBoot_1_8.png](http://blog.shoegaze.com/SpringBoot_1_8.png)
 ④ 修改 Module name 增加横杠提升可读性，点击「 Finish 」
-![SpringBoot_1_9.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_9.png)
+![SpringBoot_1_9.png](http://blog.shoegaze.com/SpringBoot_1_9.png)
 ⑤ 同理添加「 demo-dao 」、「 demo-common 」、「 demo-web 」子模块，最终得到项目目录结构如下
 ``` bash
 |-- demo
@@ -201,7 +201,7 @@ public class DemoController {
 }
 ```
 ③ 最后运行 DemoWebApplication 类中的 main 方法启动项目，默认端口为 8080，访问 http://localhost:8080/demo/test 即可测试接口
-![SpringBoot_1_10.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_10.png)
+![SpringBoot_1_10.png](http://blog.shoegaze.com/SpringBoot_1_10.png)
 #### 4.5 配置模块间的依赖关系
 通常 JAVA Web 项目会按照功能划分不同模块，模块之间通过依赖关系进行协作，下面将完善模块之间的依赖关系。
 
@@ -326,7 +326,7 @@ Consider defining a bean of type 'com.example.demo.biz.service.DemoService' in y
 @SpringBootApplication(scanBasePackages = "com.example.demo")
 ```
 ⑤ 设置完后重新运行 main 方法，项目正常启动，访问  http://localhost:8080/demo/test 测试接口
-![SpringBoot_1_11.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_11.png)
+![SpringBoot_1_11.png](http://blog.shoegaze.com/SpringBoot_1_11.png)
 #### 4.7 集成 MyBatis
 以上接口均是静态的，不涉及数据库操作，下面将集成 MyBatis 访问数据库中的数据。
 
@@ -382,7 +382,7 @@ Consider defining a bean of type 'com.example.demo.biz.service.DemoService' in y
             |-- java
 ```
 ④ 然后在 demo-web 层中的 resources 目录 创建 applicatio.properties 文件并在其中添加 datasource 及 MyBatis 相关配置项
-``` properties
+``` yml
 spring.datasource.driverClassName = com.mysql.jdbc.Driver
 spring.datasource.url = jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=utf-8
 spring.datasource.username = test
@@ -426,7 +426,7 @@ Consider defining a bean of type 'com.example.demo.dao.mapper.business.UserMappe
 @MapperScan("com.example.demo.dao.mapper")
 ```
 ⑧ 设置完后重新运行 main 方法，项目正常启动，访问 http://localhost:8080/demo/test 测试接口
-![SpringBoot_1_12.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_12.png)
+![SpringBoot_1_12.png](http://blog.shoegaze.com/SpringBoot_1_12.png)
 
 ***
 ### 五、外部 Tomcat 部署 war 包
@@ -523,7 +523,7 @@ mvn clean install -P test
 ### 七、自定义 archetype 模板
 #### 7.1 什么是 archetype 模板？
 archetype 是一个 Maven 项目模板工具包，通过 archetype 我们可以快速搭建 Maven 项目。
-![SpringBoot_1_13.png](http://pl44efaq8.bkt.clouddn.com/SpringBoot_1_13.png)
+![SpringBoot_1_13.png](http://blog.shoegaze.com/SpringBoot_1_13.png)
 每个模板里其实就是附带不同的依赖和插件。一般在公司私服里都会有属于本公司的一套 archetype 模板，里面有着调试好的项目用到的依赖包和版本号。
 #### 7.2 创建 archetype 模板
 ① cd 到项目根目录（即父 pom 文件所在目录）执行 mvn 命令，此时会在项目根目录生成 target 目录，其包含一个名为 generated-sources 的目录
@@ -638,3 +638,4 @@ package: com.orz.test
 
 ### 八、结语
 至此 Spring Boot Maven 多模块项目的搭建过程已经介绍完毕，后续会在此基础上继续集成一些中间件。
+> 源码：[https://github.com/SymonLin/demo](https://github.com/SymonLin/demo)
