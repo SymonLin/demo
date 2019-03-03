@@ -33,6 +33,7 @@
         <java.version>1.8</java.version>
         <demo.version>0.0.1-SNAPSHOT</demo.version>
         <swagger.version>2.8.0</swagger.version>
+        <jackson.version>2.9.4</jackson.version>
     </properties>
 
     <!-- 依赖管理：这里统一管理依赖的版本号 -->
@@ -88,17 +89,12 @@
             <dependency>
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
-                <version>2.3.2</version>
+                <version>${jackson.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.fasterxml.jackson.datatype</groupId>
                 <artifactId>jackson-datatype-jsr310</artifactId>
-                <version>2.6.5</version>
-            </dependency>
-            <dependency>
-                <groupId>org.codehaus.jackson</groupId>
-                <artifactId>jackson-jaxrs</artifactId>
-                <version>1.9.13</version>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

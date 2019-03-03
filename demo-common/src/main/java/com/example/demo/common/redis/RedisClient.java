@@ -15,7 +15,7 @@ import java.util.concurrent.TimeUnit;
  * @date 2019/3/2
  */
 @Component
-public class RedisUtils {
+public class RedisClient {
 
     @Autowired
     private RedisTemplate<String, Object> redisTemplate;
