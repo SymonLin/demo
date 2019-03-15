@@ -2,7 +2,6 @@ package com.example.demo.biz.service.impl.remote;
 
 import com.alibaba.dubbo.config.annotation.Service;
 import com.example.demo.biz.service.DemoService;
-import com.example.demo.common.entity.Result;
 import com.example.demo.remote.model.param.DemoParam;
 import com.example.demo.remote.model.result.DemoDTO;
 import com.example.demo.remote.service.RpcDemoService;
@@ -19,10 +18,10 @@ public class RpcDemoServiceImpl implements RpcDemoService {
     private DemoService demoService;
 
     @Override
-    public Result<DemoDTO> test(DemoParam param) {
+    public DemoDTO test(DemoParam param) {
         DemoDTO demo = new DemoDTO();
         demo.setId(1);
         demo.setName(demoService.test());
-        return Result.wrapSuccessfulResult(demo);
+        return demo;
     }
 }
