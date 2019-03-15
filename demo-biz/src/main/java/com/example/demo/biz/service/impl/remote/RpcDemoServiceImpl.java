@@ -20,8 +20,7 @@ public class RpcDemoServiceImpl implements RpcDemoService {
     @Override
     public DemoDTO test(DemoParam param) {
         DemoDTO demo = new DemoDTO();
-        demo.setId(1);
-        demo.setName(demoService.test());
+        demo.setName(demoService.test(param.getId()));
         return demo;
     }
 }

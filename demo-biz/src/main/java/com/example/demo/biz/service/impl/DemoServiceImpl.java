@@ -7,6 +7,7 @@ import com.example.demo.dao.entity.UserDO;
 import com.example.demo.dao.mapper.business.UserMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 /**
  * @author linjian
@@ -22,9 +23,10 @@ public class DemoServiceImpl implements DemoService {
     private RedisClient redisClient;
 
     @Override
-    public String test() {
-        UserDO user = userMapper.selectById(1);
-        redisClient.set("user:1", user, CacheTime.CACHE_EXP_FIVE_MINUTES);
+    public String test(Integer id) {
+        Assert.notNull(id, "id不能为空");
+        UserDO user = userMapper.selectById(id);
+        redisClient.set("user:" + id, user, CacheTime.CACHE_EXP_FIVE_MINUTES);
         return user.toString();
     }
 }

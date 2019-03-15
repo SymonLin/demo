@@ -23,6 +23,6 @@ public class DemoController {
     @GetMapping("test")
     @ApiOperation("测试")
     public String test() {
-        return demoService.test();
+        return demoService.test(1);
     }
 }

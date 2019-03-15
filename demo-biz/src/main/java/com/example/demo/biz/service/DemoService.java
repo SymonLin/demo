@@ -8,7 +8,9 @@ public interface DemoService {
 
     /**
      * 接口测试
+     *
+     * @param id 测试ID
      * @return String
      */
-    String test();
+    String test(Integer id);
 }

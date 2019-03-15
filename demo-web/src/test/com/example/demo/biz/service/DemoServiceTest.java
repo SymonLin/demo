@@ -22,7 +22,7 @@ public class DemoServiceTest {
 
     @Test
     public void test() {
-        System.out.println(demoService.test());
+        System.out.println(demoService.test(1));
     }
 
     @Test
