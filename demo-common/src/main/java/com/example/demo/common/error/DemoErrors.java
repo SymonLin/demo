@@ -1,15 +1,15 @@
 package com.example.demo.common.error;
 
-
 /**
  * @author linjian
- * @date 2019/2/18
+ * @date 2019/3/14
  */
-public enum DemoErrors {
+public enum DemoErrors implements ServiceErrors {
     /**
-     * 业务错误码
+     * 错误码
      */
-    USER_IS_NOT_EXIST(20000, "用户不存在或已删除"),
+    SYSTEM_ERROR(10000, "系统错误"),
+    PARAM_ERROR(10001, "参数错误"),
     ;
     private Integer code;
 
@@ -20,10 +20,12 @@ public enum DemoErrors {
         this.message = message;
     }
 
+    @Override
     public Integer getCode() {
         return code;
     }
 
+    @Override
     public String getMessage() {
         return message;
     }

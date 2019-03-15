@@ -6,5 +6,9 @@ package com.example.demo.biz.service;
  */
 public interface DemoService {
 
+    /**
+     * 接口测试
+     * @return String
+     */
     String test();
 }

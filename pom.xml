@@ -26,6 +26,7 @@
         <module>demo-common</module>
         <module>demo-dao</module>
         <module>demo-web</module>
+        <module>demo-remote</module>
     </modules>
 
     <!-- 属性说明 -->
@@ -59,6 +60,11 @@
                 <artifactId>demo-web</artifactId>
                 <version>${demo.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.example.demo</groupId>
+                <artifactId>demo-remote</artifactId>
+                <version>${demo.version}</version>
+            </dependency>
             <!-- 框架 -->
             <dependency>
                 <groupId>org.mybatis.spring.boot</groupId>
@@ -79,6 +85,11 @@
                 <groupId>net.bull.javamelody</groupId>
                 <artifactId>javamelody-spring-boot-starter</artifactId>
                 <version>1.74.0</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba.boot</groupId>
+                <artifactId>dubbo-spring-boot-starter</artifactId>
+                <version>0.2.0</version>
             </dependency>
             <!-- 工具 -->
             <dependency>
