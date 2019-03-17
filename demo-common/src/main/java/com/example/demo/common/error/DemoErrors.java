@@ -10,6 +10,8 @@ public enum DemoErrors implements ServiceErrors {
      */
     SYSTEM_ERROR(10000, "系统错误"),
     PARAM_ERROR(10001, "参数错误"),
+
+    USER_IS_NOT_EXIST(20000, "用户不存在"),
     ;
     private Integer code;
 
