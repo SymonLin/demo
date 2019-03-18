@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Component
-public class ResultServiceAspect implements MethodInterceptor {
+public class HttpServiceAspect implements MethodInterceptor {
 
     @Override
     public Result invoke(final MethodInvocation methodInvocation) throws Throwable {

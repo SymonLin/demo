@@ -15,12 +15,12 @@
                       and execution(com.example.demo.common.entity.Result *.*(..))"/>
         <!--定义切面-->
         <!--切面(advisor)通常由两部分组成：切点(pointcut)，增强(advice)（引用(introduction)）-->
-        <aop:advisor advice-ref="resultServiceAspect" pointcut-ref="resultControllerAspect"/>
+        <aop:advisor advice-ref="httpServiceAspect" pointcut-ref="resultControllerAspect"/>
     </aop:config>
 
     <aop:config>
-        <aop:pointcut id="dubboRemoteServiceAspect"
+        <aop:pointcut id="remoteServiceAspect"
                       expression="execution(* com.example.demo.remote.service.*.*(..))"/>
-        <aop:advisor advice-ref="dubboServiceAspect" pointcut-ref="dubboRemoteServiceAspect"/>
+        <aop:advisor advice-ref="dubboServiceAspect" pointcut-ref="remoteServiceAspect"/>
     </aop:config>
 </beans>
