@@ -1,5 +1,6 @@
 package com.example.demo.remote.service;
 
+import com.example.demo.common.entity.Result;
 import com.example.demo.remote.model.param.DemoParam;
 import com.example.demo.remote.model.result.DemoDTO;
 
@@ -15,5 +16,5 @@ public interface RpcDemoService {
      * @param param DemoParam
      * @return DemoDTO
      */
-    DemoDTO test(DemoParam param);
+    Result<DemoDTO> test(DemoParam param);
 }

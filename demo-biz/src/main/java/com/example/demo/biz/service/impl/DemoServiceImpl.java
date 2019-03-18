@@ -31,7 +31,7 @@ public class DemoServiceImpl implements DemoService {
         Assert.notNull(id, "id不能为空");
         UserDO user = userMapper.selectById(id);
         if (Objects.isNull(user)) {
-            throw new BizException(DemoErrors.SYSTEM_ERROR);
+            throw new BizException(DemoErrors.USER_IS_NOT_EXIST);
         }
         redisClient.set("user:" + id, user, CacheTime.CACHE_EXP_FIVE_MINUTES);
         return user.toString();
