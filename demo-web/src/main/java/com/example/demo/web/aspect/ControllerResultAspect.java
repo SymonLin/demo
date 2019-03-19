@@ -4,30 +4,31 @@ import com.example.demo.biz.exception.BizException;
 import com.example.demo.common.entity.Result;
 import com.example.demo.common.error.DemoErrors;
 import lombok.extern.slf4j.Slf4j;
-import org.aopalliance.intercept.MethodInterceptor;
-import org.aopalliance.intercept.MethodInvocation;
+import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.Around;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.stereotype.Component;
 
 /**
  * @author linjian
- * @date 2018/9/26
+ * @date 2019/3/19
  */
 @Slf4j
+@Aspect
 @Component
-public class HttpServiceAspect implements MethodInterceptor {
+public class ControllerResultAspect {
 
-    @Override
-    public Result invoke(final MethodInvocation methodInvocation) throws Throwable {
+    @Pointcut("@within(org.springframework.web.bind.annotation.RestController)" +
+            "&& execution(com.example.demo.common.entity.Result *.*(..))")
+    public void controllerResult() {
+    }
+
+    @Around("controllerResult()")
+    public Result doAround(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         Result result = new Result();
         try {
-            String methodName = methodInvocation.getMethod().getName();
-            if (log.isDebugEnabled()) {
-                log.debug("starting business logic processing.... " + methodName);
-            }
-            result = (Result) methodInvocation.proceed();
-            if (log.isDebugEnabled()) {
-                log.debug("finished business logic processing...." + methodName);
-            }
+            result = (Result) proceedingJoinPoint.proceed();
         } catch (BizException e) {
             result.setSuccess(false);
             result.setCode(e.getCode());
