@@ -13,4 +13,12 @@ public interface UserService {
      * @return Boolean
      */
     Boolean addUser(String userNick);
+
+    /**
+     * 获取用户字符串
+     *
+     * @param id 用户ID
+     * @return String
+     */
+    String getUserStr(Integer id);
 }

@@ -33,4 +33,9 @@ public class DemoServiceTest {
         log.warn("=====warn=====");
         log.error("=====error=====");
     }
+
+    @Test
+    public void testTransaction() {
+        demoService.testTransaction();
+    }
 }

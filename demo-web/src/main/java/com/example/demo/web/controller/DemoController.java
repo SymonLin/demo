@@ -27,4 +27,10 @@ public class DemoController {
     public Result<String> test(@RequestParam("id") Integer id) {
         return Result.wrapSuccessfulResult(demoService.test(id));
     }
+
+    @GetMapping("test/transaction")
+    @ApiOperation("测试事务")
+    public void testTransaction() {
+        demoService.testTransaction();
+    }
 }
