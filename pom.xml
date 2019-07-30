@@ -112,6 +112,11 @@
                 <artifactId>jackson-datatype-jsr310</artifactId>
                 <version>${jackson.version}</version>
             </dependency>
+            <dependency>
+                <groupId>commons-codec</groupId>
+                <artifactId>commons-codec</artifactId>
+                <version>1.12</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 </project>
