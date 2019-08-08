@@ -6,11 +6,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;
+import org.springframework.scheduling.annotation.EnableAsync;
 
 /**
  * @author linjian
  * @date 2019/1/15
  */
+@EnableAsync
 @SpringBootApplication(scanBasePackages = "com.example.demo")
 @DubboComponentScan(basePackages = "com.example.demo.biz.service.impl.remote")
 @MapperScan("com.example.demo.dao.mapper")

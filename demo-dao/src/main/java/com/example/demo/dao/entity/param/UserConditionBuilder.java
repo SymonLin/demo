@@ -6,7 +6,7 @@ import java.util.List;
 
 /**
  * @author linjian
- * @date 2019/1/15
+ * @date 2019/8/8
  */
 @Builder
 public class UserConditionBuilder {
@@ -25,5 +25,15 @@ public class UserConditionBuilder {
      * 用户昵称
      */
     private String userNick;
+
+    /**
+     * 用户手机号
+     */
+    private String userPhone;
+
+    /**
+     * 用户邮箱
+     */
+    private String userEmail;
 
 }

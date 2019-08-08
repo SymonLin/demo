@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author linjian
- * @date 2019/1/15
+ * @date 2019/8/8
  */
 @Repository
 public interface UserBaseMapper {

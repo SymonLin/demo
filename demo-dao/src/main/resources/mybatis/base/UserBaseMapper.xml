@@ -9,6 +9,10 @@
         <result column="id" property="id"/>
         <!--用户昵称-->
         <result column="user_nick" property="userNick"/>
+        <!--用户手机号-->
+        <result column="user_phone" property="userPhone"/>
+        <!--用户邮箱-->
+        <result column="user_email" property="userEmail"/>
     </resultMap>
 
     <!-- 通用查询结果列-->
@@ -16,6 +20,8 @@
         <trim suffixOverrides=",">
             `id`,
             `user_nick`,
+            `user_phone`,
+            `user_email`,
         </trim>
     </sql>
 
@@ -31,20 +37,32 @@
                     #{item}
                 </foreach>
             </if>
-            <if test="userNick != null and userNick != ''">
+            <if test="userNick != null">
                 AND `user_nick` = #{userNick}
+            </if>
+            <if test="userPhone != null">
+                AND `user_phone` = #{userPhone}
+            </if>
+            <if test="userEmail != null">
+                AND `user_email` = #{userEmail}
             </if>
         </where>
     </sql>
 
     <insert id="insertSelective" parameterType="com.example.demo.dao.entity.UserDO" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO `yb_user`
+        INSERT INTO `db_user`
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 `id`,
             </if>
             <if test="userNick != null">
                 `user_nick`,
+            </if>
+            <if test="userPhone != null">
+                `user_phone`,
+            </if>
+            <if test="userEmail != null">
+                `user_email`,
             </if>
         </trim>
         VALUES
@@ -55,14 +73,26 @@
             <if test="userNick != null">
                 #{userNick},
             </if>
+            <if test="userPhone != null">
+                #{userPhone},
+            </if>
+            <if test="userEmail != null">
+                #{userEmail},
+            </if>
         </trim>
     </insert>
 
     <update id="updateById" parameterType="com.example.demo.dao.entity.UserDO">
-        UPDATE `yb_user`
+        UPDATE `db_user`
         <set>
-            <if test="userNick != null and userNick != ''">
+            <if test="userNick != null">
                 `user_nick` = #{userNick},
+            </if>
+            <if test="userPhone != null">
+                `user_phone` = #{userPhone},
+            </if>
+            <if test="userEmail != null">
+                `user_email` = #{userEmail},
             </if>
         </set>
         WHERE `id` = #{id}
@@ -71,14 +101,14 @@
     <select id="selectByCondition" resultMap="BaseResultMap" parameterType="com.example.demo.dao.entity.param.UserConditionBuilder">
         SELECT
         <include refid="BaseColumn"/>
-        FROM `yb_user`
+        FROM `db_user`
         <include refid="QueryCondition"/>
     </select>
 
     <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         SELECT
         <include refid="BaseColumn"/>
-        FROM `yb_user`
+        FROM `db_user`
         WHERE `id` = #{id}
     </select>
 </mapper>

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 /**
  * @author linjian
- * @date 2019/1/15
+ * @date 2019/8/8
  */
 @Data
 @Builder
@@ -24,5 +24,15 @@ public class UserDO {
      * 用户昵称
      */
     private String userNick;
+
+    /**
+     * 用户手机号
+     */
+    private String userPhone;
+
+    /**
+     * 用户邮箱
+     */
+    private String userEmail;
 
 }
