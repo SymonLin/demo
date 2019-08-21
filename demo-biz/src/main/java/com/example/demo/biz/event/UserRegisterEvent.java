@@ -8,6 +8,8 @@ import org.springframework.context.ApplicationEvent;
  */
 public class UserRegisterEvent extends ApplicationEvent {
 
+    private static final long serialVersionUID = 8980725721131427952L;
+
     private String mobile;
 
     private String emailAddress;
