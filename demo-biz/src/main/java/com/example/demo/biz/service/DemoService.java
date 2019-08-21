@@ -13,4 +13,9 @@ public interface DemoService {
      * @return String
      */
     String test(Integer id);
+
+    /**
+     * http请求测试
+     */
+    void testHttp();
 }

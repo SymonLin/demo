@@ -27,4 +27,9 @@ public class DemoController {
     public Result<String> test(@RequestParam("id") Integer id) {
         return Result.wrapSuccessfulResult(demoService.test(id));
     }
+
+    @GetMapping("http")
+    public void testHttp() {
+        demoService.testHttp();
+    }
 }
