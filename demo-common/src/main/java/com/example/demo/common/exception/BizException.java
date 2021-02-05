@@ -1,4 +1,4 @@
-package com.example.demo.biz.exception;
+package com.example.demo.common.exception;
 
 import com.example.demo.common.error.ServiceErrors;
 
@@ -7,6 +7,8 @@ import com.example.demo.common.error.ServiceErrors;
  * @date 2019/3/15
  */
 public class BizException extends RuntimeException {
+
+    private static final long serialVersionUID = -2647830554109490498L;
 
     private final Integer code;
 

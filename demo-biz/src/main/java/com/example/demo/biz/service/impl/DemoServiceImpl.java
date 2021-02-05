@@ -1,8 +1,8 @@
 package com.example.demo.biz.service.impl;
 
-import com.example.demo.biz.exception.BizException;
 import com.example.demo.biz.service.DemoService;
 import com.example.demo.common.error.DemoErrors;
+import com.example.demo.common.exception.BizException;
 import com.example.demo.common.redis.CacheTime;
 import com.example.demo.common.redis.RedisClient;
 import com.example.demo.dao.entity.UserDO;
