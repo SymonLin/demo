@@ -27,4 +27,14 @@ public class DemoController {
     public Result<String> test(@RequestParam("id") Integer id) {
         return Result.wrapSuccessfulResult(demoService.test(id));
     }
+
+    @GetMapping(value = "version")
+    public Result<String> version() {
+        return Result.wrapSuccessfulResult("version");
+    }
+
+    @GetMapping(value = "version", headers = "api-version=2")
+    public Result<Integer> version2() {
+        return Result.wrapSuccessfulResult(2);
+    }
 }
