@@ -3,9 +3,12 @@ package com.example.demo.biz.service.impl;
 import com.example.demo.biz.bizenum.WhetherEnum;
 import com.example.demo.biz.exception.BizException;
 import com.example.demo.biz.model.param.UserSaveParam;
+import com.example.demo.biz.model.result.UserInfoBO;
 import com.example.demo.biz.service.UserService;
+import com.example.demo.common.annotation.Cache;
 import com.example.demo.common.constant.Constants;
 import com.example.demo.common.error.DemoErrors;
+import com.example.demo.common.redis.CacheTime;
 import com.example.demo.common.util.BeanUtils;
 import com.example.demo.dao.entity.UserDO;
 import com.example.demo.dao.mapper.business.UserMapper;
@@ -33,6 +36,13 @@ public class UserServiceImpl implements UserService {
         } else {
             return updateUser(param);
         }
+    }
+
+    @Override
+    @Cache(key = "user:%s:info", variables = "#id", expireTime = CacheTime.CACHE_EXP_MINUTE)
+    public UserInfoBO getUserInfo(Integer id) {
+        UserDO user = this.getUserById(id);
+        return BeanUtils.copy(user, UserInfoBO.class);
     }
 
     private Boolean addUser(UserSaveParam param) {

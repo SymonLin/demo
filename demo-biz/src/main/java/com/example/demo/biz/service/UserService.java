@@ -1,6 +1,7 @@
 package com.example.demo.biz.service;
 
 import com.example.demo.biz.model.param.UserSaveParam;
+import com.example.demo.biz.model.result.UserInfoBO;
 import com.example.demo.dao.entity.UserDO;
 
 /**
@@ -16,6 +17,14 @@ public interface UserService {
      * @return Boolean
      */
     Boolean saveUser(UserSaveParam param);
+
+    /**
+     * 获取用户信息
+     *
+     * @param id 用户ID
+     * @return UserInfoBO
+     */
+    UserInfoBO getUserInfo(Integer id);
 
     /**
      * 获取用户
