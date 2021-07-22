@@ -7,15 +7,42 @@
     <resultMap id="BaseResultMap" type="com.example.demo.dao.entity.UserDO">
         <!--自增ID-->
         <result column="id" property="id"/>
-        <!--用户昵称-->
-        <result column="user_nick" property="userNick"/>
+        <!--是否删除(0:未删除 1:已删除)-->
+        <result column="is_deleted" property="isDeleted"/>
+        <!--记录创建时间-->
+        <result column="create_time" property="createTime"/>
+        <!--记录修改时间-->
+        <result column="modify_time" property="modifyTime"/>
+        <!--创建人,0表示无创建人值-->
+        <result column="creator" property="creator"/>
+        <!--修改人,如果为0则表示纪录未修改-->
+        <result column="modifier" property="modifier"/>
+        <!--手机号-->
+        <result column="user_phone" property="userPhone"/>
+        <!--用户姓名-->
+        <result column="user_name" property="userName"/>
+        <!--用户性别(1:男 2:女)-->
+        <result column="user_sex" property="userSex"/>
+        <!--出生日期-->
+        <result column="user_birthday" property="userBirthday"/>
+        <!--用户头像-->
+        <result column="user_avatar" property="userAvatar"/>
     </resultMap>
 
     <!-- 通用查询结果列-->
     <sql id="BaseColumn">
         <trim suffixOverrides=",">
             `id`,
-            `user_nick`,
+            `is_deleted`,
+            `create_time`,
+            `modify_time`,
+            `creator`,
+            `modifier`,
+            `user_phone`,
+            `user_name`,
+            `user_sex`,
+            `user_birthday`,
+            `user_avatar`,
         </trim>
     </sql>
 
@@ -31,8 +58,35 @@
                     #{item}
                 </foreach>
             </if>
-            <if test="userNick != null and userNick != ''">
-                AND `user_nick` = #{userNick}
+            <if test="isDeleted != null">
+                AND `is_deleted` = #{isDeleted}
+            </if>
+            <if test="createTime != null">
+                AND `create_time` = #{createTime}
+            </if>
+            <if test="modifyTime != null">
+                AND `modify_time` = #{modifyTime}
+            </if>
+            <if test="userPhone != null">
+                AND `user_phone` = #{userPhone}
+            </if>
+            <if test="userName != null">
+                AND `user_name` = #{userName}
+            </if>
+            <if test="userSex != null">
+                AND `user_sex` = #{userSex}
+            </if>
+            <if test="userSexList != null">
+                AND `user_sex` IN
+                <foreach collection="userSexList" close=")" open="(" separator="," item="item">
+                    #{item}
+                </foreach>
+            </if>
+            <if test="userBirthday != null">
+                AND `user_birthday` = #{userBirthday}
+            </if>
+            <if test="userAvatar != null">
+                AND `user_avatar` = #{userAvatar}
             </if>
         </where>
     </sql>
@@ -43,8 +97,35 @@
             <if test="id != null">
                 `id`,
             </if>
-            <if test="userNick != null">
-                `user_nick`,
+            <if test="isDeleted != null">
+                `is_deleted`,
+            </if>
+            <if test="createTime != null">
+                `create_time`,
+            </if>
+            <if test="modifyTime != null">
+                `modify_time`,
+            </if>
+            <if test="creator != null">
+                `creator`,
+            </if>
+            <if test="modifier != null">
+                `modifier`,
+            </if>
+            <if test="userPhone != null">
+                `user_phone`,
+            </if>
+            <if test="userName != null">
+                `user_name`,
+            </if>
+            <if test="userSex != null">
+                `user_sex`,
+            </if>
+            <if test="userBirthday != null">
+                `user_birthday`,
+            </if>
+            <if test="userAvatar != null">
+                `user_avatar`,
             </if>
         </trim>
         VALUES
@@ -52,8 +133,35 @@
             <if test="id != null">
                 #{id},
             </if>
-            <if test="userNick != null">
-                #{userNick},
+            <if test="isDeleted != null">
+                #{isDeleted},
+            </if>
+            <if test="createTime != null">
+                #{createTime},
+            </if>
+            <if test="modifyTime != null">
+                #{modifyTime},
+            </if>
+            <if test="creator != null">
+                #{creator},
+            </if>
+            <if test="modifier != null">
+                #{modifier},
+            </if>
+            <if test="userPhone != null">
+                #{userPhone},
+            </if>
+            <if test="userName != null">
+                #{userName},
+            </if>
+            <if test="userSex != null">
+                #{userSex},
+            </if>
+            <if test="userBirthday != null">
+                #{userBirthday},
+            </if>
+            <if test="userAvatar != null">
+                #{userAvatar},
             </if>
         </trim>
     </insert>
@@ -61,9 +169,46 @@
     <update id="updateById" parameterType="com.example.demo.dao.entity.UserDO">
         UPDATE `yb_user`
         <set>
-            <if test="userNick != null and userNick != ''">
-                `user_nick` = #{userNick},
+            <if test="isDeleted != null">
+                `is_deleted` = #{isDeleted},
             </if>
+            <if test="createTime != null">
+                `create_time` = #{createTime},
+            </if>
+            <if test="modifyTime != null">
+                `modify_time` = #{modifyTime},
+            </if>
+            <if test="creator != null">
+                `creator` = #{creator},
+            </if>
+            <if test="modifier != null">
+                `modifier` = #{modifier},
+            </if>
+            <if test="userPhone != null">
+                `user_phone` = #{userPhone},
+            </if>
+            <if test="userName != null">
+                `user_name` = #{userName},
+            </if>
+            <if test="userSex != null">
+                `user_sex` = #{userSex},
+            </if>
+            <if test="userBirthday != null">
+                `user_birthday` = #{userBirthday},
+            </if>
+            <if test="userAvatar != null">
+                `user_avatar` = #{userAvatar},
+            </if>
+        </set>
+        WHERE `id` = #{id}
+    </update>
+
+    <update id="deleteById">
+        UPDATE `yb_user`
+        <set>
+            `is_deleted` = 1,
+            `modify_time` = now(),
+            `modifier` = #{modifier}
         </set>
         WHERE `id` = #{id}
     </update>
@@ -80,5 +225,12 @@
         <include refid="BaseColumn"/>
         FROM `yb_user`
         WHERE `id` = #{id}
+    </select>
+
+    <select id="selectOneByCondition" resultMap="BaseResultMap" parameterType="com.example.demo.dao.entity.param.UserConditionBuilder">
+        SELECT
+        <include refid="BaseColumn"/>
+        FROM `yb_user`
+        <include refid="QueryCondition"/>
     </select>
 </mapper>

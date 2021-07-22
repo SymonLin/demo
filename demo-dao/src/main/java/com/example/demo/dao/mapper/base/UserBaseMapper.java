@@ -9,7 +9,7 @@ import java.util.List;
 
 /**
  * @author linjian
- * @date 2019/1/15
+ * @date 2021/7/22
  */
 @Repository
 public interface UserBaseMapper {
@@ -31,6 +31,15 @@ public interface UserBaseMapper {
     int updateById(UserDO record);
 
     /**
+     * 根据主键ID逻辑删除
+     *
+     * @param id       主键ID
+     * @param modifier 操作人ID
+     * @return int
+     */
+    int deleteById(@Param("id") Integer id, @Param("modifier") Integer modifier);
+
+    /**
      * 动态条件查询（匹配有值的字段）
      *
      * @param params 筛选条件
@@ -45,4 +54,12 @@ public interface UserBaseMapper {
      * @return UserDO
      */
     UserDO selectById(@Param("id") Integer id);
+
+    /**
+     * 动态条件查询（匹配有值的字段）
+     *
+     * @param params 筛选条件
+     * @return UserDO
+     */
+    UserDO selectOneByCondition(UserConditionBuilder params);
 }

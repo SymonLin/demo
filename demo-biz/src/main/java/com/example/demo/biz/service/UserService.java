@@ -1,5 +1,8 @@
 package com.example.demo.biz.service;
 
+import com.example.demo.biz.model.param.UserSaveParam;
+import com.example.demo.dao.entity.UserDO;
+
 /**
  * @author linjian
  * @date 2019/2/2
@@ -7,10 +10,18 @@ package com.example.demo.biz.service;
 public interface UserService {
 
     /**
-     * 添加用户
+     * 保存用户
      *
-     * @param userNick 用户昵称
+     * @param param UserSaveParam
      * @return Boolean
      */
-    Boolean addUser(String userNick);
+    Boolean saveUser(UserSaveParam param);
+
+    /**
+     * 获取用户
+     *
+     * @param id 用户ID
+     * @return UserDO
+     */
+    UserDO getUserById(Integer id);
 }
