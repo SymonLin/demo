@@ -56,6 +56,12 @@
                 <profile.env>test</profile.env>
             </properties>
         </profile>
+        <profile>
+            <id>prod</id>
+            <properties>
+                <profile.env>prod</profile.env>
+            </properties>
+        </profile>
     </profiles>
 
     <build>
