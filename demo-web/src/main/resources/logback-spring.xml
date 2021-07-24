@@ -78,10 +78,28 @@
         </encoder>
     </appender>
 
+    <appender name="CONTROLLER" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${log.path}/controller.log</file>
+        <append>true</append>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${log.path}/controller.%d{yyyy-MM-dd}.log</fileNamePattern>
+        </rollingPolicy>
+        <encoder>
+            <charset>${log.charset}</charset>
+            <pattern>${log.pattern}</pattern>
+        </encoder>
+    </appender>
+
     <!-- 指定 com.example.demo.dao.mapper 包要使用的 appender 且不向上级传递 -->
     <logger name="com.example.demo.dao.mapper" level="DEBUG" additivity="false">
         <!-- 指定使用 DB 及 ERROR 这两个 appender -->
         <appender-ref ref="DB"/>
+        <appender-ref ref="ERROR"/>
+    </logger>
+
+    <logger name="controller" additivity="false">
+        <level value="INFO"/>
+        <appender-ref ref="CONTROLLER"/>
         <appender-ref ref="ERROR"/>
     </logger>
 
