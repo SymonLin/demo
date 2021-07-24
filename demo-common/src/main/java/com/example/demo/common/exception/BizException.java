@@ -1,4 +1,4 @@
-package com.example.demo.biz.exception;
+package com.example.demo.common.exception;
 
 import com.example.demo.common.error.ServiceErrors;
 

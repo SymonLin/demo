@@ -1,13 +1,13 @@
 package com.example.demo.biz.service.impl;
 
 import com.example.demo.biz.bizenum.WhetherEnum;
-import com.example.demo.biz.exception.BizException;
 import com.example.demo.biz.model.param.UserSaveParam;
 import com.example.demo.biz.model.result.UserInfoBO;
 import com.example.demo.biz.service.UserService;
 import com.example.demo.common.annotation.Cache;
 import com.example.demo.common.constant.Constants;
 import com.example.demo.common.error.DemoErrors;
+import com.example.demo.common.exception.BizException;
 import com.example.demo.common.redis.CacheTime;
 import com.example.demo.common.util.BeanUtils;
 import com.example.demo.dao.entity.UserDO;
