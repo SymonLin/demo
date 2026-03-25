@@ -62,7 +62,7 @@
             <dependency>
                 <groupId>com.example.demo</groupId>
                 <artifactId>demo-remote</artifactId>
-                <version>${demo.version}</version>
+                <version>1.0.0-SNAPSHOT</version>
             </dependency>
             <!-- 框架 -->
             <dependency>
