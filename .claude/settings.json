@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(mvn compile:*)",
+      "Bash(mvn spring-boot:run -pl demo-web -Pdev)",
+      "Bash(mvn install:*)",
+      "Bash(mvn spring-boot:run -Pdev)"
+    ]
+  }
+}
